@@ -1,0 +1,123 @@
+prefix: '&2[&aChatControl&2] &8 &7'
+console: 'CONSOLE'
+command: 'bungeechatcontrol'
+aliases: [bcc, bchc, chc]
+
+report-prefix: '&4&lReport&r &8> &7'
+report-command: 'bungeechatreport'
+report-aliases: [report, breport, bchatreport]
+
+
+settings:
+  use-luckperms-displayname: true
+  report-timeout: 120
+
+
+language:
+  misc-on: '&awlaczono'
+  misc-off: '&4wylaczono'
+  misc-true: '&atrue'
+  misc-false: '&4false'
+  chat-deny-message: '&cAktualnie chat jest wylaczony'
+  chat-clear-info: '&7Chat zostal wyczyszczony przez &b%sender%'
+  chat-clear-info-incognito: '&7Chat zostal wyczyszczony'
+  report:
+    usage: '&cUzycie: /report <nick> <powod>'
+    already-reported: '&cTen gracz juz zostal za to zgloszony.'
+    successfully-reported: '&aPomyslnie zglosiles &b%accused%&a.'
+    notification-timeout: '&5&lM&d&lC&bS&r &8>&7 &7Twoje zgloszenie na &b%accused% &culeglo przedawnieniu &b(2 minuty)&7!'
+    notification-rejected: '&5&lM&d&lC&bS&r &8>&7 &7Twoje zgloszenie na &b%accused% &7zostalo &4odrzucone&7!'
+    notification-accepted: '&5&lM&d&lC&bS&r &8>&7 &7Twoje zgloszenie na &b%accused% &7zostalo &aakceptowane&7!'
+    notification-admin-timeout: '&5&lM&d&lC&bS&r &8> &7Zgloszenie &b%reporter% &7na &b%accused% &culeglo przedawnieniu&7!'
+    notification-admin-rejected: '&5&lM&d&lC&bS&r &8> &b%admin% &4odrzucil &7zgloszenie &b%reporter% &7na &b%accused%&7!'
+    notification-admin-accepted: '&5&lM&d&lC&bS&r &8> &b%admin% &aakceptowal &7zgloszenie &b%reporter% &7na &b%accused%&7!'
+
+
+commands:
+  error: '&4Cos poszlo baaaaaardzo zle. Powiadom admina!'
+  permission-error: '&cNie masz do tego dostepu c:'
+  parse-error: "&cZnaleziono '%arg%', a wymagano typ: %type%"
+  arg-types:
+    text: 'tekst'
+    integer: 'l.calk.'
+    number: 'liczba'
+    server: 'serwer'
+    boolean: 'boolean'
+  help:
+    aliases:
+      - 'h'
+    description: 'Zobacz wszystkie komendy'
+    header: '&8&m-------------------&r &2&lChat&aControl&r &8&m-------------------&r'
+    footer: '&8&m---------------------------------------------------&r'
+    format: '  &a/%command%&7%args% &8- &f%description%'
+    click: '/%command%%args%'
+    hover:
+      - '&bAliasy: %aliases%'
+      - '&aKliknij aby wkleic komende'
+  list:
+    aliases:
+      - 'servers'
+      - 'status'
+      - 'l'
+    description: 'Wyswietl status chatu na trybach'
+    start: '&fDostepne serwery: '
+    separator: '&7, '
+    enabled: '&a'
+    disabled: '&c'
+    click: '/bungeechatcontrol toggle %server%'
+    hover:
+    - '&7chat: %enabled%'
+    - '&7online: &b%online%'
+    - '&aKliknij aby zmienic'
+  clear:
+    aliases:
+      - 'cl'
+    description: 'Wyczysc chat'
+    done: '&aPomyslnie wyczyszczono chat na trybie &b%server%'
+    done-global: '&aPomyslnie wyczyszczono chat &bglobalnie'
+  toggle:
+    aliases:
+      - 't'
+    description: 'Przelacz blokade chatu'
+    info-on: '&aChat zostal wlaczony przez %sender%'
+    info-on-incognito: '&aChat zostal wlaczony'
+    info-off: '&cChat zostal wylaczony przez %sender%'
+    info-off-incognito: '&cChat zostal wylaczony'
+    done-on: '&7Pomyslnie &awlaczono &7chat na trybie &b%server%'
+    done-on-global: '&7Pomyslnie &awlaczono &7chat &bglobalnie'
+    done-off: '&7Pomyslnie &4wylaczono &7chat na trybie &b%server%'
+    done-off-global: '&7Pomyslnie &4wylaczono &7chat &bglobalnie'
+    already-on: '&cChat jest juz wlaczony'
+    already-off: '&cChat jest juz wylaczony'
+  reload:
+    aliases:
+      - 'rl'
+    description: 'Przeladuj plugin'
+    completed: '&aPomyslnie przeladowano plugin'
+    failed: '&4Wystapil blad w trakcie przeladowywania. Wylaczam, zobacz konsole'
+  report:
+    aliases: []
+    description: 'Podejmij akcje ze skargami'
+    notify-new:
+      text: '&5&lM&d&lC&bS&r &8> &b%reporter% &7zglosil &b%accused% &7za: &f%reason%'
+      hover-header: '&aZgloszenie na %accused% (%id%) [%time%]'
+      hover-message-format: '&7 - [%time%] %message%'
+      hover-footer: '&bKliknij odpowiedni znak aby rozpatrzyc skarge'
+      click: '/mute %accused%'
+      accept: '&a[Akceptuj]'
+      reject: '&4[Odrzuc]'
+      accept-hover: '&aKliknij aby zaakceptowac'
+      reject-hover: '&4kliknij aby odrzucic'
+    invalid-id: '&cNiewlasciwe ID'
+    list:
+      header: '&8&m-------------------&r &4&lChat&cReports&r &8&m-------------------&r'
+      footer: '&8&m---------------------------------------------------&r'
+      format: ' &7- &b%accused% &b(%time%)'
+      hover-header: '&aZgloszenie na %accused% (%id%) [%time%]'
+      hover-message-format: '&7 - [%time%] %message%'
+      hover-footer: '&bKliknij odpowiedni znak aby rozpatrzyc skarge'
+      click: '/mute %accused%'
+      accept: '&a[Akceptuj]'
+      reject: '&4[Odrzuc]'
+      accept-hover: '&aKliknij aby zaakceptowac'
+      reject-hover: '&4kliknij aby odrzucic'
